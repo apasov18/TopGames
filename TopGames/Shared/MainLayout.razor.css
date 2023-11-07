@@ -1,0 +1,142 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 72px;
+    background: #18181c;
+    display: flex;
+    padding: 20px 24px;
+    box-sizing:border-box;
+
+}
+
+main {
+    margin: auto;
+    width: 1450px;
+}
+
+p {
+    color: #aaaaae;
+    margin: auto;
+    padding: 0 16px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.header-item {
+    margin: auto;
+}
+
+.top-games {
+    height: 32px;
+    width: 30px;
+    margin-right: 5px;
+}
+
+.logo {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+}
+
+    .logo .arrow {
+        fill: #aaaaae;
+        transition: 0.3s ease-in-out;
+    }
+
+
+    .logo:hover .arrow {
+        fill: #ffffff;
+        transform: translateY(3px);
+        
+    }
+
+.pipe {
+    width: 2px;
+    height: 32px;
+    background: #303034;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.main-links {
+    margin-left: 0;
+    display: flex;
+}
+
+.logo-store {
+    width: 54px;
+    margin-right: 10px;
+}
+
+.main-links .main-link-btn {
+    height: 32px;
+    display: flex;
+    border-radius: 12px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+    .main-links .main-link-btn:hover {
+        background: #4e4e55;
+    }
+
+
+
+        .main-links .main-link-btn:hover p {
+            color: #e6e6ea;
+        }
+
+.profile {
+    margin-right: 0;
+    display: flex;
+}
+
+    .profile .header-icon-btn {
+        width: 32px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+.header-icon-btn .globe {
+    fill: #aaaaae;
+    transition: 0.3s;
+}
+
+
+.header-icon-btn:hover .globe {
+    fill: #ffffff;
+}
+
+.header-icon-btn .user {
+    fill: #aaaaae;
+    transition: 0.3s;
+}
+
+
+.header-icon-btn:hover .user {
+    fill: #ffffff;
+}
+
+
+.profile .header-btn {
+    height: 32px;
+    display: flex;
+    border-radius: 12px;
+    background: #26bbff;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+    .profile .header-btn:hover {
+        background: #61cdff;
+    }
+
+    .profile .header-btn p {
+        color: #101014
+    }

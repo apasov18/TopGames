@@ -1,0 +1,24 @@
+﻿.slider-poster {
+    width: 1140px;
+    min-width: 912px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+    .slider-poster:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(101deg, #00000085, transparent 70%);
+        pointer-events: none;
+    }
+
+    .slider-poster img {
+        width: 1140px;
+        min-width: 912px;
+        pointer-events: none;
+    }

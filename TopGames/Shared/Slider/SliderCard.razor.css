@@ -1,0 +1,41 @@
+﻿.slider-card {
+    width: 256px;
+    min-width: 256px;
+    height: 100%;
+    border-radius: 16px;
+    margin-top: 3px;
+    display: flex;
+    transition:0.3s;
+}
+
+
+    .slider-card:hover {
+        background: #2a2a2a;
+    }
+
+
+    .slider-card:first-child {
+        margin-top: 0;
+    }
+
+
+.icon {
+    margin: auto 15px;
+}
+
+    .icon img {
+        width: 60px;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+
+.title {
+    margin: auto;
+    margin-left: 0;
+}
+
+    .title p {
+       font-size:16px;
+       color:#fff
+    }
