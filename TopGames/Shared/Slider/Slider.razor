@@ -1,17 +1,105 @@
-﻿<div class="slider-area">
-    <SliderPoster></SliderPoster>
+﻿@inject NavigationManager navigation;
+
+<div class="slider-area">
+    <SliderPoster Slide="Active"></SliderPoster>
     <div class="cards">
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
+        @foreach (var slide in Slides)
+        {
+            <SliderCard Slide="slide"
+                        SlideComponent="this"
+                        OnNext="Next"
+                        OnShow="Show"
+                        OnOpen="Open">
+            </SliderCard>
+
+        }
+
 
 
     </div>
 </div>
 
 @code {
+    private Timer sliderTimer;
+    private int slideCurrent;
+
+    private SliderModel? Active { get; set; }
+    public List<SliderModel> Slides { get; set; }
+    public bool SlideHover { get; set; }
+
+
+    public Slider()
+    {
+        sliderTimer = new Timer(5000);
+        sliderTimer.Elapsed += TimerTick;
+        SlideHover = false;
+        sliderTimer.Start();
+    }
+
+    protected override void OnInitialized()
+    {
+        Slides = DatabaseMoq.Slides;
+        Active = Slides.First();
+        Active.IsActive = true;
+    }
+
+    public void TimerTick(object? sender, EventArgs e)
+    {
+        if(Active!.IsHover)
+    {
+            SlideHover = true;
+            sliderTimer.Stop();
+            return;
+        }
+
+        Next();
+        InvokeAsync(StateHasChanged);
+    }
+
+
+    public void Next()
+    {
+        if(SlideHover)
+        {
+            SlideHover = false;
+            sliderTimer.Start();
+        }
+        Active!.IsActive = false;
+
+
+
+        slideCurrent = (slideCurrent + 1) % Slides.Count;
+        Active = Slides[slideCurrent];
+        Active!.IsActive = true;
+    }
+
+    public  void Show(SliderModel slide)
+    {
+        sliderTimer.Stop();
+        Active!.IsActive = false;
+        Active = slide;
+        Active!.IsActive = true;
+        slideCurrent = Slides.IndexOf(Active);
+        sliderTimer.Start();
+    }
+
+    public void Open()
+    {
+        slideCurrent = 0;
+        Active!.IsHover = false;
+        Active!.IsActive = false;
+        DeleteTimer();
+
+        navigation.NavigateTo(Active.Url);
+    }
+
+    public void DeleteTimer()
+    {
+        if (sliderTimer!=null)
+        {
+            sliderTimer.Stop();
+            sliderTimer.Elapsed -= TimerTick;
+        }
+    }
 
 }

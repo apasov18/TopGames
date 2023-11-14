@@ -1,13 +1,62 @@
-﻿<div class="slider-card">
-    <div class="icon">
-        <img src="https://cdn2.unrealengine.com/egs-alan-wake-2-carousel-thumb-1200x1600-c64beec29b55.jpg?h=128&amp;quality=medium&amp;resize=1&amp;w=96" alt="Play Alan Wake 2 on Epic Games Store">
+﻿<div class="slider-card  @(Slide.IsActive ? "active" : "")"
+                               @onmouseover="Enable"
+                               @onmouseout="Disable"
+                               @onclick="ChoiceSlide">
+
+    <div class="slider-item icon">
+        <img src="@Slide.Image">
     </div>
-    <div class="title">
-        <p>Alan Wake 2</p>
+    <div class="slider-item title">
+        <p>@Slide.Title</p>
     </div>
 
 </div>
 
 @code {
+
+
+
+
+
+    [Parameter]
+    public SliderModel Slide { get; set; }
+
+    [Parameter]
+    public Slider SlideComponent { get; set; }
+
+    [Parameter]
+    public EventCallback OnNext { get; set; }
+
+    [Parameter]
+    public EventCallback OnOpen { get; set; }
+
+    [Parameter]
+    public EventCallback<SliderModel> OnShow { get; set; }
+
+
+    private void Enable()
+    {
+        Slide.IsHover = true;
+    }
+    private async void Disable()
+    {
+        Slide.IsHover = false;
+        if (Slide.IsActive && SlideComponent.SlideHover)
+        {
+            await OnNext.InvokeAsync();
+        }
+    }
+
+    private async void ChoiceSlide()
+    {
+        if (Slide.IsActive)
+        {
+            await OnOpen.InvokeAsync();
+        }
+        else
+        {
+            await OnShow.InvokeAsync(Slide);
+        }
+    }
 
 }

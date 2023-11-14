@@ -22,3 +22,8 @@
         min-width: 912px;
         pointer-events: none;
     }
+
+
+    .slider-poster p {
+        color: #fff;
+    }
