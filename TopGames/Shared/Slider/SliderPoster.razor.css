@@ -1,6 +1,5 @@
 ﻿.slider-poster {
-    width: 1140px;
-    min-width: 912px;
+    width: 100%;
     border-radius: 16px;
     overflow: hidden;
     position: relative;
@@ -18,8 +17,8 @@
     }
 
     .slider-poster img {
-        width: 1140px;
-        min-width: 912px;
+        width: 100%;
+        min-width: 100%;
         pointer-events: none;
     }
 

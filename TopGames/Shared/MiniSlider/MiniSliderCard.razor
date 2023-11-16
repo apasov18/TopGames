@@ -1,0 +1,32 @@
+﻿@inject NavigationManager navigate
+<div class="card" @onclick="OpenGame">
+    <div class="image">
+        <img src="@Game.UrlImage" />
+    </div>
+    <p class="tag">BASE GAME</p>
+    <p class="title">@Game.Title</p>
+    <div class="price-area">
+        <div class="percent">
+            <p>-@Game.Discount%</p>
+        </div>
+        <div class="price-change">
+            <p class="initial-price"> CZK @Game.Price </p>
+            <p class="new-price">CZK @DiscountPrice()</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public GameModel Game{ get; set; }
+
+    private double DiscountPrice()
+    {
+        return Game.Price * (1 - (Game.Discount / 100));
+    }
+
+    private void OpenGame()
+    {
+        navigate.NavigateTo($"/game/{Game.Id}");
+    }
+}
