@@ -12,5 +12,12 @@
 
         public double Price { get; set; }
 
+        public bool IsSliderShow { get; set; }
+
+        public string Background { get; set; }
+
+        public string ButtonColor { get; set; }
+
+
     }
 }

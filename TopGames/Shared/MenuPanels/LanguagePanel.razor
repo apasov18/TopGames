@@ -1,0 +1,70 @@
+﻿<div class="header-icon-btn"
+@onmouseleave="LanguagePanelHide"
+@onmouseenter="LanguagePanelShow">
+
+@ButtonIcon 
+
+
+    <div class="language-panel @(Show ? "active": "")">
+        @foreach (var culture in cultures)
+        {
+            <p class="language @(CurrentCulture == culture ? "active" : "")"
+            @onclick="()=>
+            ChoiseCulture(culture)">
+                @culture.NativeName
+            </p>
+        }
+    </div>
+
+
+</div>
+
+
+
+
+@code {
+    [Parameter]
+    public RenderFragment ButtonIcon { get; set; }
+
+    [CascadingParameter]
+    public CultureInfo CurrentCulture { get; set; }
+
+    [Parameter]
+    public EventCallback<CultureInfo> OnCultureChoise { get; set; }
+
+    [Parameter]
+    public bool Show  { get; set; }
+
+
+
+
+    CultureInfo[] cultures = new CultureInfo[]
+       {
+           new CultureInfo("ru"),
+           new CultureInfo("en"),
+
+       };
+
+    protected override async Task   OnInitializedAsync ()
+    {
+        await OnCultureChoise.InvokeAsync(cultures[1]);
+
+    }
+
+    private async Task ChoiseCulture(CultureInfo culture)
+    {
+        await OnCultureChoise.InvokeAsync(culture);
+    }
+
+
+    void LanguagePanelShow()
+    {
+        Show = true;
+    }
+
+    void LanguagePanelHide()
+    {
+        Show = false;
+    }
+
+}

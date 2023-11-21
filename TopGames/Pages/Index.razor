@@ -1,4 +1,7 @@
 ﻿@page "/"
+@inject IJSRuntime js 
+
+
 
 <Slider></Slider>
 <MiniSlider></MiniSlider>
@@ -6,4 +9,14 @@
 @for (int i = 0; i < 25; i++)
 {
     <p>@i</p>
+}
+
+
+@code{
+   
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("setVar", "--background", "#121212");
+    }
 }

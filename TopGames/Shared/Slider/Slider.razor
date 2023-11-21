@@ -38,7 +38,8 @@
 
     protected override void OnInitialized()
     {
-        Slides = DatabaseMoq.Slides;
+
+        Slides = DatabaseMoq.Games.GetSlides();
         Active = Slides.First();
         Active.IsActive = true;
     }

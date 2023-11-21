@@ -70,7 +70,10 @@ namespace TopGames.Data
                         Title = "Car Mechanic - City Driving",
                         UrlImage="https://cdn1.epicgames.com/spt-assets/be29ee7e2f14449d822b76bf52e8f5ab/car-mechanic--city-driving-17nkn.png?h=480&quality=medium&resize=1&w=360",
                         Price=250,
-                        Discount=50
+                        Discount=50,
+                        IsSliderShow = true,
+                        Background="#005050",
+                        ButtonColor="#0074e4"
 
                     },
                     new GameModel()
@@ -79,7 +82,12 @@ namespace TopGames.Data
                         Title = "Achilles Legends Untold",
                         UrlImage="https://cdn1.epicgames.com/spt-assets/aec31192b8a6463c9bd43dcb6ece5c8f/achilles-legends-untold-trjaz.jpg?h=480&quality=medium&resize=1&w=360",
                         Price=530,
-                        Discount=30
+                        Discount=30,
+                        IsSliderShow = true,
+                        
+                        Background="#005050",
+                        ButtonColor="#0074e4"
+
 
                     },
                     new GameModel()
@@ -88,7 +96,12 @@ namespace TopGames.Data
                         Title = "Hanoi Puzzles - Solid Match",
                         UrlImage="https://cdn1.epicgames.com/spt-assets/58e43b2cb77d4087882873f43831b6a1/hanoi-puzzles--solid-match-c5eqt.png?h=480&quality=medium&resize=1&w=360",
                         Price=239,
-                        Discount=33
+                        Discount=33,
+                        IsSliderShow = true,
+                        Background="#005050",
+                        ButtonColor="#0074e4"
+
+
 
                     },
                     new GameModel()
@@ -97,7 +110,12 @@ namespace TopGames.Data
                         Title = "Ghoul Castle 3D - Gold Edition",
                         UrlImage="https://cdn1.epicgames.com/spt-assets/2402ff8ccf5647828483c9e8880e3cce/ghoul-castle-3d--gold-edition-rchv0.png?h=480&quality=medium&resize=1&w=360",
                         Price=659,
-                        Discount=20
+                        Discount=20,
+                        IsSliderShow = true,
+                        Background="#005050",
+                        ButtonColor="#0074e4"
+
+
                     },
                     new GameModel()
                     {
@@ -105,7 +123,12 @@ namespace TopGames.Data
                         Title = "Island Farmer",
                         UrlImage="https://cdn1.epicgames.com/spt-assets/3fb5be523b7a46d39f9b2da081fad744/island-farmer-1keo0.jpg?h=480&quality=medium&resize=1&w=360",
                         Price=759,
-                        Discount=10
+                        Discount=10,
+                        IsSliderShow = true,
+                        Background="#005050",
+                        ButtonColor="#0074e4"
+
+
                     },
                     new GameModel()
                     {
@@ -113,7 +136,12 @@ namespace TopGames.Data
                         Title = "GINSHA",
                         UrlImage="https://cdn1.epicgames.com/spt-assets/d9cf30b30233475dbcf56055db33c826/ginsha-11fm9.jpg?h=480&quality=medium&resize=1&w=360",
                         Price=450,
-                        Discount=43
+                        Discount=43,
+                        IsSliderShow = true,
+                        Background="#005050",
+                        ButtonColor="#0074e4"
+
+
                     }
                 };
             
